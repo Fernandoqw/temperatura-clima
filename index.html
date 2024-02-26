@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Temperatura</title>
+</head>
+<body>
+    <div class="container">
+        <div class="caixaPesquisa">
+            <i class='bx bxs-map'></i>
+            <input type="text" placeholder="Digite o Local" id="inp-pesquisar">
+            <button class="bx bx-search"></button>
+        </div>
+
+        <p class="cidadeHide">cidade</p>
+
+        <div class="caixaClima">
+            <div class="caixa">
+                <div class="infoClima">
+                    <div class="clima">
+                        <img src="imagens/cloud.png">
+                        <p class="temperatura">0<span>°C</span></p>
+                        <p class="descricao">Nublado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detalhesClima">
+            <div class="umidade">
+                <i class='bx bx-water'></i>
+                <div class="text">
+                    <div class="infoUmidade">
+                        <span>0%</span>
+                    </div>
+                    <p>Umidade</p>
+                </div>
+            </div>
+
+
+            <div class="vento">
+                <i class='bx bx-wind'></i>
+                <div class="text">
+                    <div class="infoVento">
+                        <span>0Km/h</span>
+                    </div>
+                    <p>Velocidade do Vento</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="naoEncontrado">
+            <div class="caixa">
+                <img src="imagens/ntFound.png">
+                <p>Oops! Localização não Encontrada!</p>
+            </div>
+        </div>
+    
+     </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 

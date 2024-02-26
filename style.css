@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(imagens/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    height: 100px;
+    background: #7a6c4e41;
+    border:  2px solid rgba(225, 225, 255, 0.632);
+    backdrop-filter: blur(30px);
+    border-radius: 16px;
+    padding: 20px;
+    color: #fff;
+    transition: height .6s ease;
+}
+
+.caixaPesquisa {
+    position: relative;
+    width: 100%;
+    height: 55px;
+    display: flex;
+    align-items: center;
+}
+
+.caixaPesquisa input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba( 255, 255, 255, .2);
+    outline: none;
+    border-radius: 16px;
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 0 48px 0 42px;
+}
+
+.caixaPesquisa input::placeholder {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.caixaPesquisa button {
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 28px;
+    color: #fff;
+    padding: 0 40px 0 5px;
+    cursor: pointer;
+}
+
+.caixaPesquisa i {
+    position: absolute;
+    left: 10px;
+    font-size: 28px;
+}
+
+.caixaClima {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.caixaClima,
+.detalhesClima,
+.naoEncontrado {
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.caixaClima.active,
+.detalhesClima.active,
+.naoEncontrado.active {
+    visibility: visible;
+
+}
+
+.caixaClima .caixa,
+.naoEncontrado .caixa{
+    transform: translateY(-100%);
+}
+
+.caixaClima.active .caixa,
+.naoEncontrado.active .caixa{
+    transform: translateY(0%);
+    transition: transform 1s ease;
+    transition-delay: .6s;
+}
+
+.caixaClima .caixa .infoClima {
+    transform: translateY(-120%);
+}
+
+.container.active .caixaClima .caixa .infoClima,
+.container.active .detalhesClima .umidade .infoUmidade,
+.container.active .detalhesClima .vento .infoVento{
+    transform: translateY(0%);
+    transition: transform 1s ease;
+}
+
+.caixaClima img {
+    width: 60%;
+}
+
+.caixaClima .temperatura{
+    position: relative;
+    font-size: 64px;
+    line-height: 1;
+    font-weight: 700;
+    margin: 20px 0 6px -30px;
+}
+
+.caixaClima .temperatura span {
+    position: absolute;
+    font-size: 24px;
+    margin-left: 4px;
+}
+
+.caixaClima .descricao {
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.detalhesClima {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+}
+
+.detalhesClima .umidade,
+.detalhesClima .vento {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    transform: translateY(-100%);
+}
+
+.detalhesClima.active .umidade,
+.detalhesClima.active .vento{
+    transform: translateY(-5%);
+    transition: transform 1s ease;
+    transition-delay: 1.2s;
+}
+
+.detalhesClima.active .umidade .infoUmidade,
+.detalhesClima.active .vento .infoVento{
+    transform: translateY(-100%);
+    overflow: hidden;
+}
+
+.detalhesClima .umidade {
+    padding-left: 20px;
+    justify-content: flex-start;
+}
+
+.detalhesClima .vento {
+    padding-right: 20px;
+    justify-content: flex-end;
+}
+
+.detalhesClima i {
+    font-size: 56px;
+    margin-right: 10px;
+}
+
+.detalhesClima span {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.detalhesClima p {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.naoEncontrado {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 110px;
+}
+
+.naoEncontrado img {
+    width: 65%;
+
+}
+
+.naoEncontrado p {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 12px;
+}
+
+.cidadeHide {
+    display: none;
+}
+
+#cloneInfoClima,
+#cloneInfoUmidade,
+#cloneInfoVento {
+    position: absolute;
+    transform: translateY(-100%);
+}
+
+#cloneInfoClima .clima {
+    transform: translateY(120%);
+    transition: transform 1s ease, opacity 0s;
+    transition-delay: 0s, 2s;
+}
+
+.caixaClima:not(.active) #cloneInfoClima .clima {
+    opacity: 0;
+    transition-delay: 0s;
+}
+
+.activeClone#cloneInfoClima .clima {
+    transform: translateY(0%);    
+}
+
+#cloneInfoUmidade span,
+#cloneInfoVento span {
+    transform: translateY(100%);
+    transition: transform 1s ease;
+}
+
+.activeClone#cloneInfoUmidade span,
+.activeClone#cloneInfoVento span {
+    transform: translateY(0%);
+}
